@@ -16,7 +16,11 @@ jobs:
           submodules: recursive
 
       - name: Set up Git Bash
-        uses: xt0rted/setup-git-bash@v1
+        shell: bash
+        run: |
+          choco install git -y
+          echo 'export PATH="/mingw64/bin:$PATH"' >> $HOME/.bashrc
+          source $HOME/.bashrc
 
       - name: Run the Docker image
         run: |
