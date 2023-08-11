@@ -21,6 +21,8 @@ jobs:
           choco install git -y
           echo 'export PATH="/mingw64/bin:$PATH"' >> $HOME/.bashrc
           source $HOME/.bashrc
+          git config --global core.autocrlf input
+          git config --global core.longpaths true
 
       - name: Run the Docker image
         run: |
