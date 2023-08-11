@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: recursive
+          line-endings: crlf
 
       - name: Set up Git Bash
         shell: bash
@@ -21,8 +21,8 @@ jobs:
           choco install git -y
           echo 'export PATH="/mingw64/bin:$PATH"' >> $HOME/.bashrc
           source $HOME/.bashrc
-          git config --global core.autocrlf input
           git config --global core.longpaths true
+          git submodule update --init --recursive
 
       - name: Run the Docker image
         run: |
