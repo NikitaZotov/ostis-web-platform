@@ -2,21 +2,32 @@ name: Docker
 
 on:
   pull_request:
-    branches: [main]
+    branches: [develop]
 
 jobs:
   build:
     name: Build and Run
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          submodules: recursive
+
+      - name: Checkout
+        run: |
+          git config --global core.crlf input
+          git config --global core.longpaths true
+          git submodule update --init --recursive
+
+      - name: Set up Git Bash
+        shell: bash
+        run: |
+          echo 'export PATH="/mingw64/bin:$PATH"' >> $HOME/.bashrc
+          source $HOME/.bashrc
 
       - name: Run the Docker image
         run: |
+          ./scripts/install_submodules.sh
           docker compose build
           docker compose run machine build
           docker compose up -d
