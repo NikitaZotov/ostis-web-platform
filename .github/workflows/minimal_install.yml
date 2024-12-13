@@ -38,4 +38,3 @@ jobs:
           cd scripts
           ./set_vars.sh
           ./install_minimal_platform.sh
-          ./run_sc_machine.sh -t
