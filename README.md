@@ -2,7 +2,7 @@
 
 <img src="https://github.com/ostis-ai/ostis-web-platform/actions/workflows/main.yml/badge.svg?branch=develop"> [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
  
-It is the repository of the Platform of the [OSTIS Technology](https://github.com/ostis-ai). Platform OSTIS is intended to be a solid framework to help you deploy existing and create new ostis-systems.
+It is the repository of the Platform of the [OSTIS Technology](https://github.com/ostis-ai). OSTIS Platform is intended to be a solid framework to help you deploy existing and create new ostis-systems.
 
 OSTIS Platform contains:
 
@@ -59,28 +59,15 @@ To learn more about the platform, check out our [documentation](https://github.c
   ```sh
   git clone https://github.com/ostis-ai/ostis-web-platform --recursive
   cd ostis-web-platform
-  ./scripts/install_submodules.sh # download all submodules without compilation.
+  ./scripts/install_submodules.sh # download all submodules
   docker compose build
   ```
 
    </details>
 
-- Natively (using sc-component-manager)
-
-  ```sh
-  git clone https://github.com/ostis-ai/ostis-web-platform
-  cd ostis-web-platform
-  ./scripts/install_minimal_platform.sh
-  ./scripts/run_sc_machine.sh
-  # and write write the following commands in the terminal:
-  # components init
-  # components install sc_web
-  # components install knowledge_base_ims
-  ```
-
 - Natively
 
-  Note: Currently, only Linux (Ubuntu-20.04, Ubuntu-22.04) and macOS are supported by this installation method. If you're going to use it, it might take a while to download dependencies and compile the components. Use it only if you know what you're doing!
+  Note: Currently, only Linux (Ubuntu-22.04, Ubuntu-24.04) and macOS are supported by this installation method.
 
   ```sh
   git clone https://github.com/ostis-ai/ostis-web-platform --recursive
@@ -117,8 +104,7 @@ to provide opportunity to use it in information processing and knowledge generat
 
 You can access the current version of the documentation in [docs/main.pdf](docs/main.pdf) file of this project.
 
-Documentation is written with
-the help of LaTeX tools in SCn-code representation. To build documentation manually, you'll need a LaTeX distribution installed on your computer. Alternatively, we provide a Docker image to build the documentation in case you can't / don't want to install LaTeX on your PC.
+Documentation is written with the help of LaTeX tools in SCn-code representation. To build documentation manually, you'll need a LaTeX distribution installed on your computer. Alternatively, we provide a Docker image to build the documentation in case you can't / don't want to install LaTeX on your PC.
 
 ### Download scn-tex-plugin and documentation for subprojects
 
