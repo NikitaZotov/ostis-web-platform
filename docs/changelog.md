@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Install scp-machine
-- Script `install_minimal_platform.sh`
+- Script `install_minimal_submodules.sh`
 - Script `update_submodules.sh`
 - Install sc-component-manager
 
@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Script `build_kb.sh`
 - Script `build_sc_machine.sh`
 - Script `install_dependencies.sh`
+- Script `install_platform.sh`
 
 ## [0.9.0-Unlock] - 22.01.2024
 
