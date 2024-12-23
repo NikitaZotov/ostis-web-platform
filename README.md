@@ -59,7 +59,9 @@ To learn more about the platform, check out our [documentation](https://github.c
   ```sh
   git clone https://github.com/ostis-ai/ostis-web-platform --recursive
   cd ostis-web-platform
-  ./scripts/install_submodules.sh # download all submodules
+  # download all submodules
+  ./scripts/install_submodules.sh
+  # build sc-machine, scp-machine and sc-component-manager
   docker compose build
   ```
 
@@ -72,7 +74,37 @@ To learn more about the platform, check out our [documentation](https://github.c
   ```sh
   git clone https://github.com/ostis-ai/ostis-web-platform --recursive
   cd ostis-web-platform
-  ./scripts/install_platform.sh
+  ./scripts/install_submodules.sh
+
+  # to build sc-machine, see https://ostis-ai.github.io/sc-machine/build/quick_start/#start-develop-sc-machine-with-conan
+  cd sc-machine
+  # make sure, that you have `conan`, updated `cmake` and `ninja`
+  cmake --preset debug-conan
+  cmake --build --preset debug
+  conan export-pkg .
+  cd ..
+
+  # to build scp-machine, see https://ostis-ai.github.io/scp-machine/build/quick_start/#start-develop-sc-machine-with-conan
+  cd scp-machine
+  conan install . -s build_type=Debug
+  cmake --preset debug-conan
+  cmake --build --preset debug
+  cd ..
+
+  # to build sc-component-manager, see https://ostis-ai.github.io/sc-component-manager/build/quick_start/#start-develop-sc-machine-with-conan
+  cd sc-component-manager
+  conan install . -s build_type=Debug
+  cmake --preset debug-conan
+  cmake --build --preset debug
+  cd ..
+
+  # to build sc-web, see https://github.com/ostis-ai/sc-web/blob/main/README.md
+  cd sc-web
+  ./scripts/install_dependencies.sh
+  npm run build
+  python3 server/app.py
+
+  # after building projects there should be three folders `build/Debug` in sc-machine, scp-machine and sc-component-manager
   ```
 
 ## Usage
@@ -81,7 +113,8 @@ To learn more about the platform, check out our [documentation](https://github.c
 
   ```sh
   # build the knowledge base
-  # required before the first startup (or if you've made updates to KB sources)
+  # required before the first startup 
+  # (or if you've made updates to knowledge base sources)
   docker compose run machine build
   # start platform services and run web interface at localhost:8000
   docker compose up
@@ -90,11 +123,10 @@ To learn more about the platform, check out our [documentation](https://github.c
 - Native installation
 
   ```sh
-  # launch semantic network processing machine
-  ./scripts/run_sc_machine.sh
-  # *in another terminal*
-  # launch semantic interfaces interpreter at localhost:8000
-  ./scripts/run_sc_web.sh
+  # to run sc-machine, see https://ostis-ai.github.io/sc-machine/build/quick_start/#run-sc-machine-in-debug
+  ./sc-machine/build/Debug/bin/sc-builder -i repo.path -o kb.bin --clear
+  ./sc-machine/build/Debug/bin/sc-machine -s kb.bin \
+    -e "sc-machine/build/Debug/lib/extensions;scp-machine/build/Debug/lib/extensions;sc-component-manager/build/Debug/lib/extensions"
   ```
 
 ## Documentation
