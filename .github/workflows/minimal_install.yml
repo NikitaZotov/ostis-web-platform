@@ -37,4 +37,4 @@ jobs:
         run: |
           cd scripts
           ./set_vars.sh
-          ./install_minimal_platform.sh
+          ./install_minimal_submodules.sh
