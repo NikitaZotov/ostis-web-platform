@@ -37,6 +37,7 @@ services:
       #- "REBUILD_KB=1"
       - "KB_PATH=/kb/repo.path"
       - "BINARY_PATH=/sc-machine/build/Release/bin"
+      - "EXTENSIONS_PATH=/sc-machine/build/Release/lib/extensions"
       - "CONFIG_PATH=/kb/ostis-web-platform.ini"
     command:
       - "run"
