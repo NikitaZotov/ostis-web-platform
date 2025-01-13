@@ -36,7 +36,7 @@ services:
       # Use the commented env variable if you need to rebuild KB every startup.
       #- "REBUILD_KB=1"
       - "KB_PATH=/kb/repo.path"
-      - "BINARY_PATH=/sc-machine/bin"
+      - "BINARY_PATH=/sc-machine/build/Release/bin"
       - "CONFIG_PATH=/kb/ostis-web-platform.ini"
     command:
       - "run"
