@@ -84,14 +84,14 @@ To learn more about the platform, check out our [documentation](https://github.c
   conan export-pkg .
   cd ..
 
-  # to build scp-machine, see https://ostis-ai.github.io/scp-machine/build/quick_start/#start-develop-sc-machine-with-conan
+  # to build scp-machine, see https://ostis-ai.github.io/scp-machine/build/quick_start/#start-develop-scp-machine-with-conan
   cd scp-machine
   conan install . -s build_type=Debug
   cmake --preset debug-conan
   cmake --build --preset debug
   cd ..
 
-  # to build sc-component-manager, see https://ostis-ai.github.io/sc-component-manager/build/quick_start/#start-develop-sc-machine-with-conan
+  # to build sc-component-manager, see https://ostis-ai.github.io/sc-component-manager/build/quick_start/#start-develop-sc-component-manager-with-conan
   cd sc-component-manager
   conan install . -s build_type=Debug
   cmake --preset debug-conan
@@ -102,6 +102,7 @@ To learn more about the platform, check out our [documentation](https://github.c
   cd sc-web
   ./scripts/install_dependencies.sh
   npm run build
+  source .venv/bin/activate
   python3 server/app.py
 
   # after building projects there should be three folders `build/Debug` in sc-machine, scp-machine and sc-component-manager
