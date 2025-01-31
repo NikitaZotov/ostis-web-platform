@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Breaking changes
 
-- All build and run scripts have been removed. This was done due to changes in the build system of the machine. So now this repository is most suitable for developers, not for consumers.
+- All build and run scripts have been removed. This was done due to changes in the build system of the sc-machine. So now this repository is most suitable for developers, not for consumers.
 
 ### Added
 
