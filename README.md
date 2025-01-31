@@ -79,8 +79,8 @@ To learn more about the platform, check out our [documentation](https://github.c
   # to build sc-machine, see https://ostis-ai.github.io/sc-machine/build/quick_start/#start-develop-sc-machine-with-conan
   cd sc-machine
   # make sure, that you have `conan`, updated `cmake` and `ninja`
-  cmake --preset debug-conan
-  cmake --build --preset debug
+  cmake --preset release-conan
+  cmake --build --preset release
   conan export-pkg .
   cd ..
 
