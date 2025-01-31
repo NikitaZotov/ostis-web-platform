@@ -81,19 +81,20 @@ To learn more about the platform, check out our [documentation](https://github.c
   # make sure, that you have `conan`, updated `cmake` and `ninja`
   cmake --preset release-conan
   cmake --build --preset release
+  conan install . --build=missing
   conan export-pkg .
   cd ..
 
   # to build scp-machine, see https://ostis-ai.github.io/scp-machine/build/quick_start/#start-develop-scp-machine-with-conan
   cd scp-machine
-  conan install . -s build_type=Debug
+  conan install . -s build_type=Debug --build=missing
   cmake --preset debug-conan
   cmake --build --preset debug
   cd ..
 
   # to build sc-component-manager, see https://ostis-ai.github.io/sc-component-manager/build/quick_start/#start-develop-sc-component-manager-with-conan
   cd sc-component-manager
-  conan install . -s build_type=Debug
+  conan install . -s build_type=Debug --build=missing
   cmake --preset debug-conan
   cmake --build --preset debug
   cd ..
