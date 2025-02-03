@@ -39,7 +39,7 @@ To learn more about the platform, check out our [documentation](https://github.c
   # download images from Docker Hub
   docker compose pull
   # build knowledge base
-  docker compose run machine build
+  docker compose run --rm machine build
   # launch web platform stack
   docker compose up
   ```
@@ -105,7 +105,7 @@ To learn more about the platform, check out our [documentation](https://github.c
   npm run build
   cd ../..
 
-  # after building projects there should be three folders `build/Debug` in sc-machine, scp-machine and sc-component-manager
+  # after building projects there should be `build/Release` folder in sc-machine and `build/Debug` folders in scp-machine and sc-component-manager
   ```
 
 ## Usage
@@ -129,7 +129,7 @@ To learn more about the platform, check out our [documentation](https://github.c
   # to run sc-machine, see https://ostis-ai.github.io/sc-machine/build/quick_start/#run-sc-machine-in-release
   ./sc-machine/build/Release/bin/sc-builder -i repo.path -o kb.bin --clear
   ./sc-machine/build/Release/bin/sc-machine -s kb.bin -c ostis-web-platform.ini \
-    -e "sc-machine/build/Debug/lib/extensions;scp-machine/build/Debug/lib/extensions;sc-component-manager/build/Debug/lib/extensions"
+    -e "sc-machine/build/Release/lib/extensions;scp-machine/build/Debug/lib/extensions;sc-component-manager/build/Debug/lib/extensions"
   ```
 
   Run in the second terminal:
