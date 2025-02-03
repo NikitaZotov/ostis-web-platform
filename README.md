@@ -2,7 +2,7 @@
 
 <img src="https://github.com/ostis-ai/ostis-web-platform/actions/workflows/main.yml/badge.svg?branch=develop"> [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
  
-It is the repository of the Platform of the [OSTIS Technology](https://github.com/ostis-ai). OSTIS Platform is intended to be a solid framework to help you deploy existing and create new ostis-systems.
+It is the repository of the Platform of the [OSTIS Technology](https://github.com/ostis-ai). The OSTIS Platform is intended to be a solid framework to help you deploy existing and create new ostis-systems.
 
 OSTIS Platform contains:
 
