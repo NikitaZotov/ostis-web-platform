@@ -100,11 +100,10 @@ To learn more about the platform, check out our [documentation](https://github.c
   cd ..
 
   # to build sc-web, see https://github.com/ostis-ai/sc-web/blob/main/README.md
-  cd sc-web
+  cd interface/sc-web
   ./scripts/install_dependencies.sh
   npm run build
-  source .venv/bin/activate
-  python3 server/app.py
+  cd ../..
 
   # after building projects there should be three folders `build/Debug` in sc-machine, scp-machine and sc-component-manager
   ```
@@ -117,18 +116,27 @@ To learn more about the platform, check out our [documentation](https://github.c
   # build the knowledge base
   # required before the first startup 
   # (or if you've made updates to knowledge base sources)
-  docker compose run machine build
+  docker compose run --rm machine build
   # start platform services and run web interface at localhost:8000
   docker compose up
   ```
 
-- Native installation
+- Native
+
+  Run in the first terminal:
 
   ```sh
-  # to run sc-machine, see https://ostis-ai.github.io/sc-machine/build/quick_start/#run-sc-machine-in-debug
-  ./sc-machine/build/Debug/bin/sc-builder -i repo.path -o kb.bin --clear
-  ./sc-machine/build/Debug/bin/sc-machine -s kb.bin \
+  # to run sc-machine, see https://ostis-ai.github.io/sc-machine/build/quick_start/#run-sc-machine-in-release
+  ./sc-machine/build/Release/bin/sc-builder -i repo.path -o kb.bin --clear
+  ./sc-machine/build/Release/bin/sc-machine -s kb.bin -c ostis-web-platform.ini \
     -e "sc-machine/build/Debug/lib/extensions;scp-machine/build/Debug/lib/extensions;sc-component-manager/build/Debug/lib/extensions"
+  ```
+
+  Run in the second terminal:
+
+  ```sh
+  cd interface/sc-web
+  source .venv/bin/activate && python3 server/app.py
   ```
 
 ## Documentation
